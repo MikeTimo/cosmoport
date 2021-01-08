@@ -46,13 +46,13 @@ public class MyRestController {
 
         return shipService.allShips(
                 Specification.where(shipService.filterByName(name)
-                        .and(shipService.filterByPlanet(planet)))
+                        .and(shipService.filterByPlanet(planet))
                         .and(shipService.filterByShipType(shipType))
                         .and(shipService.filterByDate(after, before))
                         .and(shipService.filterByUsage(isUsed))
                         .and(shipService.filterBySpeed(minSpeed, maxSpeed))
                         .and(shipService.filterByCrewSize(minCrewSize, maxCrewSize))
-                        .and(shipService.filterByRating(minRating, maxRating)), pageable).getContent();
+                        .and(shipService.filterByRating(minRating, maxRating))), pageable).getContent();
     }
 
     @GetMapping("/ships/count")
@@ -71,13 +71,13 @@ public class MyRestController {
                                @RequestParam(value = "maxRating", required = false) Double maxRating) {
         return shipService.countShips(
                 Specification.where(shipService.filterByName(name)
-                        .and(shipService.filterByPlanet(planet)))
+                        .and(shipService.filterByPlanet(planet))
                         .and(shipService.filterByShipType(shipType))
                         .and(shipService.filterByDate(after, before))
                         .and(shipService.filterByUsage(isUsed))
                         .and(shipService.filterBySpeed(minSpeed, maxSpeed))
                         .and(shipService.filterByCrewSize(minCrewSize, maxCrewSize))
-                        .and(shipService.filterByRating(minRating, maxRating))).size();
+                        .and(shipService.filterByRating(minRating, maxRating)))).size();
     }
 
     @PostMapping("/ships")
